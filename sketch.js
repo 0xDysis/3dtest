@@ -1,3 +1,5 @@
+
+
 let scene, camera, renderer, geometry, material, mesh;
 let noise = new SimplexNoise();
 let time = 0;
@@ -6,7 +8,7 @@ let angle = 0;
 function init() {
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-  camera.position.z = 1;
+  camera.position.z = 10;
   renderer = new THREE.WebGLRenderer({antialias: true});
 
   let canvas = document.querySelector('#threeCanvas');
@@ -16,7 +18,7 @@ function init() {
 
 function createGeometry() {
     geometry = new THREE.PlaneGeometry(20, 20, 100, 100);
-    material = new THREE.MeshBasicMaterial({wireframe: true, color: 0xcccccc});
+    material = new THREE.MeshBasicMaterial({wireframe: true, color: 0x786e6e});
   mesh = new THREE.Mesh(geometry, material);
   mesh.rotation.x = -Math.PI / 2; // Rotate the mesh to face the camera
 
@@ -52,9 +54,9 @@ function animate() {
   camera.lookAt(scene.position);
 
   // Increment the angle for the next frame
-  angle += 0.01;
+  angle += 0.005;
 
-  time += 0.005; // Adjust this value to control the speed of the animation
+  time += 0.006; // Adjust this value to control the speed of the animation
   updateGeometry();
 
   renderer.render(scene, camera);
@@ -63,4 +65,12 @@ function animate() {
 init();
 createGeometry();
 animate();
+
+
+
+
+
+
+
+
 
